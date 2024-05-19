@@ -1,0 +1,49 @@
+{
+    "name": "Queen Enza-MD",
+    "description": "Queen Enza WA Multi-Device",
+    "repository": "https://github.com/ULTRAModz/QueenEnza",
+    "logo": "https://telegra.ph/file/267339a9259bfd00018ae.jpg",
+    "keywords": [
+        "Queen Enza",
+        "Whatsapp",
+        "ULTRA Modz",
+        "multi-device"
+    ],
+    "env": {
+        "SESSION_ID": {
+            "description": "Type the Session-ID you got from scaning QR",
+            "required": true,
+            "value": ""
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Use the same App name as first.",
+            "required": true,
+            "value": ""
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+        },
+        {
+            "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+        }
+    ],
+    "addons": [
+        {
+            "plan": "heroku-postgresql",
+            "options": {
+                "version": "13"
+            }
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "standard-1x"
+        }
+    }
+}
